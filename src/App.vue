@@ -15,23 +15,30 @@ import HousewarmingInvitation from './components/HousewarmingInvitation.vue'
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 
-    'Microsoft YaHei', sans-serif;
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  padding: 20px 10px;
 }
 
 .app {
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
 }
 
 #app {
   width: 100%;
+  height: 100vh;
 }
 </style>

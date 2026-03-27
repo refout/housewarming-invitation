@@ -10,15 +10,7 @@
     <div class="navigation-buttons">
       <button @click="openGaodeMap" class="nav-btn gaode">
         <span class="btn-icon">🗺️</span>
-        高德地图
-      </button>
-      <button @click="openBaiduMap" class="nav-btn baidu">
-        <span class="btn-icon">📍</span>
-        百度地图
-      </button>
-      <button @click="openTencentMap" class="nav-btn tencent">
-        <span class="btn-icon">🗺️</span>
-        腾讯地图
+        高德地图导航
       </button>
     </div>
     <div class="copy-address">
@@ -63,20 +55,6 @@ const openGaodeMap = () => {
   window.open(url, '_blank')
 }
 
-// 打开百度地图
-const openBaiduMap = () => {
-  // 百度地图Web端导航URL
-  const url = `https://api.map.baidu.com/marker?location=${props.latitude},${props.longitude}&title=${encodeURIComponent(props.title)}&content=${encodeURIComponent(props.address)}&output=html`
-  window.open(url, '_blank')
-}
-
-// 打开腾讯地图
-const openTencentMap = () => {
-  // 腾讯地图Web端导航URL
-  const url = `https://apis.map.qq.com/uri/v1/marker?marker=coord:${props.latitude},${props.longitude};title:${encodeURIComponent(props.title)};addr:${encodeURIComponent(props.address)}`
-  window.open(url, '_blank')
-}
-
 // 复制地址
 const copyAddress = async () => {
   try {
@@ -103,11 +81,97 @@ const copyAddress = async () => {
 
 <style scoped>
 .location-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+/* 桌面端优化 */
+@media (min-width: 769px) {
+  .location-card {
+    padding: 30px;
+    border-radius: 18px;
+  }
+
+  .location-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .location-icon {
+    font-size: 40px;
+    margin-right: 15px;
+  }
+
+  .location-header h3 {
+    font-size: 24px;
+  }
+
+  .location-address {
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .location-address p {
+    font-size: 17px;
+  }
+
+  .navigation-buttons {
+    margin-bottom: 20px;
+  }
+
+  .nav-btn {
+    padding: 16px 24px;
+    font-size: 17px;
+    border-radius: 12px;
+  }
+
+  .btn-icon {
+    font-size: 22px;
+  }
+
+  .copy-btn {
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1200px) {
+  .location-card {
+    padding: 35px;
+  }
+
+  .location-icon {
+    font-size: 45px;
+  }
+
+  .location-header h3 {
+    font-size: 26px;
+  }
+
+  .location-address {
+    padding: 22px;
+  }
+
+  .location-address p {
+    font-size: 18px;
+  }
+
+  .nav-btn {
+    padding: 18px 26px;
+    font-size: 18px;
+  }
+
+  .copy-btn {
+    padding: 16px;
+    font-size: 17px;
+  }
 }
 
 .location-card:hover {
@@ -147,28 +211,26 @@ const copyAddress = async () => {
 }
 
 .navigation-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
   margin-bottom: 15px;
 }
 
 .nav-btn {
-  padding: 10px 15px;
+  width: 100%;
+  padding: 12px 15px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 8px;
 }
 
 .btn-icon {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .gaode {
@@ -178,27 +240,7 @@ const copyAddress = async () => {
 
 .gaode:hover {
   background: linear-gradient(135deg, #00E676 0%, #00C853 100%);
-  transform: scale(1.05);
-}
-
-.baidu {
-  background: linear-gradient(135deg, #2196F3 0%, #03A9F4 100%);
-  color: white;
-}
-
-.baidu:hover {
-  background: linear-gradient(135deg, #03A9F4 0%, #2196F3 100%);
-  transform: scale(1.05);
-}
-
-.tencent {
-  background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%);
-  color: white;
-}
-
-.tencent:hover {
-  background: linear-gradient(135deg, #FFC107 0%, #FF9800 100%);
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .copy-address {
@@ -228,12 +270,116 @@ const copyAddress = async () => {
 }
 
 @media (max-width: 600px) {
+  .location-card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .location-header {
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .location-icon {
+    font-size: 32px;
+    margin-right: 10px;
+  }
+
+  .location-header h3 {
+    font-size: 20px;
+  }
+
+  .location-address {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .location-address p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
   .navigation-buttons {
-    grid-template-columns: 1fr;
+    margin-bottom: 15px;
   }
 
   .nav-btn {
+    padding: 18px 12px;
+    font-size: 17px;
+    min-height: 56px;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .nav-btn:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  .btn-icon {
+    font-size: 22px;
+  }
+
+  .copy-btn {
+    padding: 16px;
+    font-size: 16px;
+    min-height: 52px;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .copy-btn:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  .location-card:hover {
+    transform: none;
+  }
+
+  .gaode:hover,
+  .copy-btn:hover {
+    transform: none;
+  }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 375px) {
+  .location-card {
     padding: 12px;
+  }
+
+  .location-icon {
+    font-size: 24px;
+  }
+
+  .location-header h3 {
+    font-size: 16px;
+  }
+
+  .location-address p {
+    font-size: 13px;
+  }
+
+  .nav-btn,
+  .copy-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .location-card:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-btn:hover,
+  .copy-btn:hover {
+    transform: none;
   }
 }
 </style>
