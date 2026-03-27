@@ -224,27 +224,27 @@ const copyRestaurantAddress = async () => {
 
 /* 为不同的section添加背景色 - 从紫色到紫红色的线性渐变 */
 .card-section:nth-child(1) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.card-section:nth-child(2) {
   background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
 }
 
-.card-section:nth-child(3) {
-  background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+.card-section:nth-child(2) {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
 }
 
-.card-section:nth-child(4) {
+.card-section:nth-child(3) {
   background: linear-gradient(135deg, #a855f7 0%, #c026d3 100%);
 }
 
-.card-section:nth-child(5) {
+.card-section:nth-child(4) {
   background: linear-gradient(135deg, #c026d3 0%, #d946ef 100%);
 }
 
-.card-section:nth-child(6) {
+.card-section:nth-child(5) {
   background: linear-gradient(135deg, #d946ef 0%, #ec4899 100%);
+}
+
+.card-section:nth-child(6) {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
 }
 
 .card-section:nth-child(7) {
