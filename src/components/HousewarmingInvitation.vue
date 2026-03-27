@@ -203,7 +203,8 @@ const copyRestaurantAddress = async () => {
 <style scoped>
 /* 容器：卡片式滚动布局 */
 .invitation-container {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -212,7 +213,9 @@ const copyRestaurantAddress = async () => {
 
 /* 每个section占满一屏 */
 .card-section {
+  width: 100%;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
@@ -258,6 +261,8 @@ const copyRestaurantAddress = async () => {
   width: 100%;
   max-width: 600px;
   padding: 80px 40px;
+  padding-top: calc(80px + env(safe-area-inset-top));
+  padding-bottom: calc(80px + env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -304,7 +309,7 @@ const copyRestaurantAddress = async () => {
 
 .scroll-hint {
   position: absolute;
-  bottom: 40px;
+  bottom: calc(40px + env(safe-area-inset-bottom));
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -341,6 +346,8 @@ const copyRestaurantAddress = async () => {
   width: 100%;
   max-width: 600px;
   padding: 80px 40px;
+  padding-top: calc(80px + env(safe-area-inset-top));
+  padding-bottom: calc(80px + env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -376,6 +383,8 @@ const copyRestaurantAddress = async () => {
   width: 100%;
   max-width: 600px;
   padding: 50px 40px;
+  padding-top: calc(50px + env(safe-area-inset-top));
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -426,6 +435,8 @@ const copyRestaurantAddress = async () => {
   width: 100%;
   max-width: 600px;
   padding: 50px 40px;
+  padding-top: calc(50px + env(safe-area-inset-top));
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   border-radius: 20px;
@@ -536,6 +547,8 @@ const copyRestaurantAddress = async () => {
   max-width: 600px;
   text-align: center;
   padding: 80px 40px;
+  padding-top: calc(80px + env(safe-area-inset-top));
+  padding-bottom: calc(80px + env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -575,6 +588,8 @@ const copyRestaurantAddress = async () => {
   max-width: 600px;
   text-align: center;
   padding: 80px 40px;
+  padding-top: calc(80px + env(safe-area-inset-top));
+  padding-bottom: calc(80px + env(safe-area-inset-bottom));
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;

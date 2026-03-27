@@ -16,8 +16,10 @@ import HousewarmingInvitation from './components/HousewarmingInvitation.vue'
 }
 
 html, body {
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
+  /* 背景色延伸到整个视口，包括 iOS 安全区域 */
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
 }
 
 html {
@@ -34,11 +36,11 @@ body {
 
 .app {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 #app {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 </style>
